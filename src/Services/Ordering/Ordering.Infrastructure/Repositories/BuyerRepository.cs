@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Microsoft.eShopOnContainers.Services.Ordering.Infrastructure.Repositories
 {
+    /// <summary>
+    /// At the implementation level, a repository is simply a class with data persistence code coordinated by a unit of work (DBContext in EF Core)
+    /// when performing updates.
+    /// </summary>
     public class BuyerRepository
         : IBuyerRepository
     {
@@ -35,7 +39,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Infrastructure.Repositor
             else
             {
                 return buyer;
-            }
+            }           
         }
 
         public Buyer Update(Buyer buyer)

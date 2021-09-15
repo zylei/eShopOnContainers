@@ -7,6 +7,13 @@ using System.Linq;
 
 namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.OrderAggregate
 {
+    /// <summary>
+    /// Having an aggregate root means that most of the code related to consistency and business rules
+    /// of the aggregate's entities should be implemented as methods in the Order aggregate root class
+    /// (for example, AddOrderItem when adding an OrderItem object to the aggregate). You should not create or
+    /// update OrderItems objects independently or directly;
+    /// the AggregateRoot class must keep control and consistency of any update operation against its child entities.
+    /// </summary>
     public class Order
         : Entity, IAggregateRoot
     {

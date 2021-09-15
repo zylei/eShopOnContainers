@@ -2,7 +2,9 @@
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Extensions;
 using Microsoft.eShopOnContainers.Services.Ordering.Infrastructure.Idempotency;
 using Microsoft.Extensions.Logging;
+using Ordering.API.Application.Behaviors;
 using Ordering.API.Application.Commands;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -93,7 +95,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.API.Application.Commands
                         commandId,
                         command);
 
-                    // Send the embeded business command to mediator so it runs its related CommandHandler 
+                    // Send the embedded business command to mediator so it runs its related CommandHandler 
                     var result = await _mediator.Send(command, cancellationToken);
 
                     _logger.LogInformation(
